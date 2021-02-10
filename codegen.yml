@@ -1,9 +1,5 @@
 overwrite: true
-schema:
-  - https://swapi-graphql.netlify.app:
-      headers:
-        accept: "application/json"
-        authorization: "bearer user:gh.de9f3966-0202-4a8a-84b2-f71a3963ad88:lgvhV4t5_CoQl_VzVVKC4A"
+schema: http://localhost:44563/graphiql
 documents: "src/graphql/**/*.graphql"
 generates:
   src/graphql/graphql.schema.tsx:

@@ -13,7 +13,7 @@ const initialState = {
   },
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: any) => {
   switch (action.type) {
     case "GET_PEOPLE":
       return { ...state, loading: true };

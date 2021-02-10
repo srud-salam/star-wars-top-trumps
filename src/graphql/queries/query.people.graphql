@@ -1,0 +1,12 @@
+query people {
+  allPeople(first: 82) {
+    totalCount
+    people {
+      id
+      name
+      birthYear
+      height
+      mass
+    }
+  }
+}

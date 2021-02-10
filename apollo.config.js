@@ -1,8 +1,9 @@
 module.exports = {
   client: {
-    service: "star-wars-top-trumps",
-  },
-  engine: {
-    endpoint: "https://graphql.org/swapi-graphql",
+    service: {
+      name: "swapi-graphql",
+      url: "http://localhost:44563/graphiql",
+      skipSSLValidation: true,
+    },
   },
 };

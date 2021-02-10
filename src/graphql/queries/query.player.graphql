@@ -1,0 +1,23 @@
+query player {
+  starships: allStarships(first: 36) {
+    totalCount
+    starships {
+      id
+      name
+      model
+      length
+      cargoCapacity
+      hyperdriveRating
+    }
+  }
+  people: allPeople(first: 82) {
+    totalCount
+    people {
+      id
+      name
+      birthYear
+      height
+      mass
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components/macro";
+import styled, { createGlobalStyle } from "styled-components/macro";
 import { normalize } from "polished";
 
 export const GlobalStyle = createGlobalStyle`
@@ -31,3 +31,33 @@ export const theme = {
     },
   },
 };
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 100%;
+  transition: all 500ms;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
+export const Header = styled(Container)`
+  grid-area: header;
+`;
+
+export const MainContent = styled.div`
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
