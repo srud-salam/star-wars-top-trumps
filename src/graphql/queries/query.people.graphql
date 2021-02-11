@@ -1,7 +1,6 @@
 query people {
-  allPeople(first: 82) {
-    totalCount
-    people {
+  results: allPeople(first: 36) {
+    player: people {
       id
       name
       birthYear

@@ -2,8 +2,8 @@ import styled from "styled-components/macro";
 import { rgba } from "polished";
 
 export const Container = styled.div`
-  border-top: 1px solid ${rgba("#000", 0.1)};
-  border-bottom: 1px solid ${rgba("#000", 0.1)};
+  border-top: 1px solid lightblue;
+  border-bottom: 1px solid lightblue;
   padding: 10px;
   margin-bottom: 20px;
 

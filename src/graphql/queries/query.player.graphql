@@ -1,6 +1,5 @@
 query player {
   starships: allStarships(first: 36) {
-    totalCount
     starships {
       id
       name
@@ -10,8 +9,7 @@ query player {
       hyperdriveRating
     }
   }
-  people: allPeople(first: 82) {
-    totalCount
+  people: allPeople(first: 36) {
     people {
       id
       name

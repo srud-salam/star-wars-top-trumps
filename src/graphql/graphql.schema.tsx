@@ -1306,10 +1306,9 @@ export type PeopleQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type PeopleQuery = (
   { __typename?: 'Root' }
-  & { allPeople?: Maybe<(
+  & { results?: Maybe<(
     { __typename?: 'PeopleConnection' }
-    & Pick<PeopleConnection, 'totalCount'>
-    & { people?: Maybe<Array<Maybe<(
+    & { player?: Maybe<Array<Maybe<(
       { __typename?: 'Person' }
       & Pick<Person, 'id' | 'name' | 'birthYear' | 'height' | 'mass'>
     )>>> }
@@ -1323,14 +1322,12 @@ export type PlayerQuery = (
   { __typename?: 'Root' }
   & { starships?: Maybe<(
     { __typename?: 'StarshipsConnection' }
-    & Pick<StarshipsConnection, 'totalCount'>
     & { starships?: Maybe<Array<Maybe<(
       { __typename?: 'Starship' }
       & Pick<Starship, 'id' | 'name' | 'model' | 'length' | 'cargoCapacity' | 'hyperdriveRating'>
     )>>> }
   )>, people?: Maybe<(
     { __typename?: 'PeopleConnection' }
-    & Pick<PeopleConnection, 'totalCount'>
     & { people?: Maybe<Array<Maybe<(
       { __typename?: 'Person' }
       & Pick<Person, 'id' | 'name' | 'birthYear' | 'height' | 'mass'>
@@ -1343,10 +1340,9 @@ export type StarshipsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type StarshipsQuery = (
   { __typename?: 'Root' }
-  & { allStarships?: Maybe<(
+  & { results?: Maybe<(
     { __typename?: 'StarshipsConnection' }
-    & Pick<StarshipsConnection, 'totalCount'>
-    & { starships?: Maybe<Array<Maybe<(
+    & { player?: Maybe<Array<Maybe<(
       { __typename?: 'Starship' }
       & Pick<Starship, 'id' | 'name' | 'model' | 'length' | 'cargoCapacity' | 'hyperdriveRating'>
     )>>> }
@@ -1356,9 +1352,8 @@ export type StarshipsQuery = (
 
 export const PeopleDocument = gql`
     query people {
-  allPeople(first: 82) {
-    totalCount
-    people {
+  results: allPeople(first: 36) {
+    player: people {
       id
       name
       birthYear
@@ -1396,7 +1391,6 @@ export type PeopleQueryResult = Apollo.QueryResult<PeopleQuery, PeopleQueryVaria
 export const PlayerDocument = gql`
     query player {
   starships: allStarships(first: 36) {
-    totalCount
     starships {
       id
       name
@@ -1406,8 +1400,7 @@ export const PlayerDocument = gql`
       hyperdriveRating
     }
   }
-  people: allPeople(first: 82) {
-    totalCount
+  people: allPeople(first: 36) {
     people {
       id
       name
@@ -1445,9 +1438,8 @@ export type PlayerLazyQueryHookResult = ReturnType<typeof usePlayerLazyQuery>;
 export type PlayerQueryResult = Apollo.QueryResult<PlayerQuery, PlayerQueryVariables>;
 export const StarshipsDocument = gql`
     query starships {
-  allStarships(first: 36) {
-    totalCount
-    starships {
+  results: allStarships(first: 36) {
+    player: starships {
       id
       name
       model

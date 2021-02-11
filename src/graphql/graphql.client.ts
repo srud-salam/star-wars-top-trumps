@@ -6,7 +6,7 @@ import {
 } from "@apollo/react-hooks";
 
 const link = new HttpLink({
-  uri: "http://localhost:44563/graphiql",
+  uri: "http://localhost:43491/graphiql",
 });
 
 const client = new ApolloClient({

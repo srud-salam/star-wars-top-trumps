@@ -1,7 +1,6 @@
 query starships {
-  allStarships(first: 36) {
-    totalCount
-    starships {
+  results: allStarships(first: 36) {
+    player: starships {
       id
       name
       model

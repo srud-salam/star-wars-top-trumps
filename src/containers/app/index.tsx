@@ -4,7 +4,8 @@ import Layout from "../../components/layout";
 
 import { HistoryContext } from "../history";
 import { HistoryType } from "../history/history.type";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Deck from "../deck";
 
 const App: React.FC = () => {
   const [history, setHistory] = useState<HistoryType[]>([]);
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <HistoryContext.Provider value={value}>
         <Layout>
           <Route path="/" exact component={Home} />
+          <Route path="/:player" exact component={Deck} />
         </Layout>
       </HistoryContext.Provider>
     </Router>

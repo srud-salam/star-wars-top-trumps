@@ -52,10 +52,11 @@ export const Container = styled.div`
 
 export const Header = styled(Container)`
   grid-area: header;
+  text-transform: capitalize;
 `;
 
-export const MainContent = styled.div`
-  grid-area: main;
+export const Content = styled.div`
+  grid-area: content;
   display: flex;
   flex-direction: row;
   justify-content: center;

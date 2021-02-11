@@ -5,10 +5,13 @@ import Deck from "../../containers/deck";
 
 const Home: React.FC = () => {
   const match = useRouteMatch();
+
+  console.log(`${match.url}:player`);
+
   return (
     <>
       <Switch>
-        <Route path={`${match.url}/:player`}>
+        <Route path={`${match.url}:player`}>
           <Deck />
         </Route>
         <Route path={match.url}>
