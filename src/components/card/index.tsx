@@ -15,26 +15,14 @@ import {
 
 export const FIELDS = ["__typename", "id", "name"];
 
-const Card: React.FC<CardProps> = ({ card, winner, compareField }) => {
+const Card: React.FC<CardProps> = ({ card, winner }) => {
   const { player } = useParams<RouterParams>();
 
-  const isWinner = () => {
-    if (compareField === "hyperdriveRating" && card.__typename === "Starship") {
-      if (card.hyperdriveRating === winner.value) return true;
-    }
-
-    if (compareField === "hieght" && card.__typename === "Person") {
-      if (card.height === winner.value) return true;
-    }
-
-    return false;
-  };
-  console.log(card, winner, compareField);
   return (
     <CardContainer data-testid={`card-test-id-${card.id}`}>
       <CardBody data-testid={`card-body-id-${card.id}`}>
         <CardHeader player={player}>
-          {isWinner() ? (
+          {card.id === winner.id ? (
             <Winner>{card.name} is winner</Winner>
           ) : (
             <div>{card.name}</div>

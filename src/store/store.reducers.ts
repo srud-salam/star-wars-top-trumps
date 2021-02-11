@@ -1,12 +1,11 @@
-import { v4 as uuidv4 } from "uuid";
 import { Action, Entity, State } from "./store.types";
 import { ADD_PLAYER, PLAY, REMOVE_PLAYER, SET_MAX } from "./store.constants";
-import { deal, convertToSentenceCase, getWinner } from "./store.helpers";
+import { deal, getWinnerCard } from "./store.helpers";
 import { useReducer } from "react";
 
 export const initState: State = {
   hands: [],
-  winner: { index: 0, value: 0 },
+  winner: {} as Entity,
   players: 2,
   maxPlayers: 2,
   history: [],
@@ -26,18 +25,24 @@ const reducer = (state: State, action: Action<Entity>): State => {
     case PLAY: {
       const { deck, compareField } = action.payload;
       const hands = deal(deck.slice(), state.players);
-      const winner = getWinner(hands, compareField);
+      const winner = getWinnerCard(hands, compareField);
+
+      if (!deck) {
+        return {
+          ...state,
+        };
+      }
+
       return {
         ...state,
         hands,
-        winner: winner,
+        winner: { ...winner },
         history: [
           ...state.history,
           {
-            id: uuidv4(),
-            time: new Date().toLocaleTimeString(),
-            winner: winner,
-            compareField: convertToSentenceCase(compareField),
+            winner: { ...winner },
+            winnerDate: new Date(),
+            playerHands: [...hands],
           },
         ],
       };

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   PEOPLE_IMGS,
-  PLAYER_TYPE,
   STARSHIPS_IMGS,
 } from "../player/player.constant";
 

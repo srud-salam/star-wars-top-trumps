@@ -1,6 +1,7 @@
+import { Entity } from "../../store/store.types";
+
 export type HistoryType = {
-  id: string;
-  compareField: string;
-  winner: { index: number; value: number };
-  time: string;
+  winner: Entity;
+  winnerDate: Date;
+  playerHands: Entity[];
 };

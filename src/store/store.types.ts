@@ -6,7 +6,7 @@ export type Entity = Starship | Person;
 
 export type State = {
   hands: Entity[];
-  winner: { index: number; value: number };
+  winner: Entity;
   players: number;
   maxPlayers: number;
   history: HistoryType[];

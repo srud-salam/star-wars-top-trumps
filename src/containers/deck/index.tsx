@@ -11,11 +11,7 @@ import {
 } from "../../store/store.constants";
 import usePlayerReducer from "../../store/store.reducers";
 import { DocumentNode, useQuery } from "@apollo/react-hooks";
-import {
-  Header,
-  Content,
-  Container,
-} from "../../components/layout/layout.styles";
+import { Header, Content } from "../../components/layout/layout.styles";
 import {
   PeopleDocument,
   StarshipsDocument,
@@ -23,7 +19,7 @@ import {
 } from "../../graphql/graphql.schema";
 
 import { Button, CircularProgress } from "@material-ui/core";
-import { Board, ControlsContainer, Wrapper } from "./deck.style";
+import { Wrapper } from "./deck.style";
 import { Entity } from "../../store/store.types";
 import Card from "../../components/card";
 
@@ -40,6 +36,10 @@ const query = (player: string): DocumentNode => {
 
 const Deck: React.FC = () => {
   const { player } = useParams<RouterParams>();
+
+  if (!(player === "/:player" || player === "starships" || player === "people"))
+    return null;
+
   const { setHistory } = useContext(HistoryContext);
   const { data, loading, error } = useQuery(query(player));
 
@@ -115,12 +115,7 @@ const Deck: React.FC = () => {
               <Button onClick={() => play()}> Play Again</Button>
             </Content>
             {hands.map((card) => (
-              <Card
-                card={card}
-                winner={winner}
-                compareField={compareField}
-                key={card.id}
-              ></Card>
+              <Card card={card} winner={winner} key={card.id}></Card>
             ))}
           </div>
         )}

@@ -2,12 +2,10 @@ import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import Player from "../../components/player";
 import Deck from "../../containers/deck";
+import History from "../../pages/history";
 
 const Home: React.FC = () => {
   const match = useRouteMatch();
-
-  console.log(`${match.url}:player`);
-
   return (
     <>
       <Switch>

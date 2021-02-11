@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Home from "../../pages/home";
+import History from "../../pages/history";
 import Layout from "../../components/layout";
 
 import { HistoryContext } from "../history";
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Layout>
           <Route path="/" exact component={Home} />
           <Route path="/:player" exact component={Deck} />
+          <Route path="/history" exact component={History} />
         </Layout>
       </HistoryContext.Provider>
     </Router>

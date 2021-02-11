@@ -8,7 +8,7 @@ const Header = () => {
         <Logo to="/">Star Wars Top Trumps</Logo>
         <Menu>
           <LinkButton to="/">Home</LinkButton>
-          <LinkButton to="/History/">History</LinkButton>
+          <LinkButton to="/history/">History</LinkButton>
         </Menu>
       </StyledGrid>
     </Container>
